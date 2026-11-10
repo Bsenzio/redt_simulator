@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore REDT, a Yamagata University research project connecting renewable energy experiments and digital twins.">
+  <title>REDT — Renewable Energy Digital Twins</title>
+  <link rel="icon" href="redt-logo.png">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="site.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-t="skip">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./" aria-label="REDT"><img src="redt-logo.png" alt="" width="76" height="42"><span>REDT</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#research" data-t="research">Research</a>
+        <a href="#energy" data-t="energy">Energy systems</a>
+        <a href="#simulator" data-t="simulator">Simulator</a>
+      </nav>
+      <div class="language" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ja" aria-pressed="false" lang="ja">日本語</button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot"></span><span data-t="institution">Yamagata University · Renewable Energy &amp; Control Systems Research</span></p>
+          <h1 data-t="title">Renewable Energy<br>Digital Twins</h1>
+          <p class="intro" data-t="intro">Explore how sunlight, wind, and temperature differences can power distributed systems. REDT connects physical experiments with digital models so researchers can replay measurements and study operating conditions.</p>
+          <div class="actions"><a class="button primary" href="#simulator" data-t="solarAction">Explore the solar simulator</a><a class="button secondary" href="#energy" data-t="systemsAction">Meet the energy systems <span aria-hidden="true">↘</span></a></div>
+        </div>
+        <figure class="hero-visual">
+          <img class="hero-land" src="solar-landscape.webp" alt="" width="1000" height="380">
+          <div class="hero-logo"><img src="redt-logo.png" alt="REDT logo" width="290" height="140"></div>
+          <figcaption><span>01 / 03</span><span data-t="heroCaption">FROM FIELD MEASUREMENT TO SIMULATION</span></figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="wrap section research" id="research">
+      <p class="eyebrow"><span class="index">01</span> <span data-t="research">Research</span></p>
+      <h2 data-t="researchTitle">A bridge between experiments and models</h2>
+      <p class="section-intro" data-t="researchCopy">The project studies small, distributed energy systems. A digital twin pairs measurements from physical equipment with a virtual model to explore how weather and operating conditions affect the system.</p>
+      <div class="workflow">
+        <article><span aria-hidden="true">01</span><h3 data-t="measure">Measure</h3><p data-t="measureCopy">Record environmental conditions and electrical readings from physical equipment.</p></article>
+        <article><span aria-hidden="true">02</span><h3 data-t="model">Model</h3><p data-t="modelCopy">Recreate those conditions in a virtual system and vary one factor at a time.</p></article>
+        <article><span aria-hidden="true">03</span><h3 data-t="compare">Compare</h3><p data-t="compareCopy">Use the readings to compare behavior and investigate operating strategies.</p></article>
+      </div>
+    </section>
+    <section class="energy-section" id="energy">
+      <div class="wrap section">
+        <p class="eyebrow"><span class="index">02</span> <span data-t="energy">Energy systems</span></p>
+        <h2 data-t="energyTitle">Three ways to harvest energy</h2>
+        <div id="energy-carousel" class="carousel" aria-roledescription="carousel" aria-label="Energy systems" tabindex="0">
+          <div class="slide-image"><img id="mascot" src="solar.webp" alt="REDT solar mascot carrying a photovoltaic panel" width="640" height="590"><span id="slide-index" aria-hidden="true">01 / 03</span></div>
+          <article class="slide-copy" aria-live="polite" aria-atomic="true">
+            <p id="slide-status" class="pill">SOLAR SIMULATOR AVAILABLE</p>
+            <h3 id="slide-title">Solar photovoltaics</h3>
+            <p id="slide-description">Photovoltaic cells convert sunlight into electricity. In REDT, irradiance, shade and panel temperature can be compared with electrical behavior.</p>
+            <p class="example-label" data-t="example">RESEARCH EXAMPLE</p>
+            <p id="slide-example">A panel array digital twin with adjustable clouds, tilt and series connections.</p>
+          </article>
+        </div>
+        <div class="carousel-controls">
+          <div class="dots" role="group" aria-label="Choose an energy system">
+            <button type="button" data-slide="0" aria-pressed="true">01 <span data-t="solar">Solar</span></button>
+            <button type="button" data-slide="1" aria-pressed="false">02 <span data-t="wind">Wind</span></button>
+            <button type="button" data-slide="2" aria-pressed="false">03 <span data-t="heat">Thermoelectric</span></button>
+          </div>
+          <div class="arrows"><button id="previous" type="button" aria-label="Previous slide">←</button><button id="next" type="button" aria-label="Next slide">→</button></div>
+        </div>
+      </div>
+    </section>
+    <section class="wrap section" id="simulator">
+      <p class="eyebrow"><span class="index">03</span> <span data-t="simulator">Simulator</span></p>
+      <div class="launch">
+        <div><p class="pill" data-t="available">AVAILABLE MODULE</p><h2 data-t="launchTitle">Enter the solar lab</h2>
+          <p data-t="launchCopy">Switch between the physical twin and a virtual solar field. Adjust the weather and the panel layout, inspect a single unit, and compare time-series plots.</p>
+          <a href="play.html" class="button primary" data-t="launchButton">Open REDT simulator <span aria-hidden="true">↗</span></a>
+          <p class="planned" data-t="roadmap">Small wind turbine and Seebeck effect modules are planned.</p>
+        </div>
+        <div class="sim-picture"><img src="solar-landscape.webp" width="780" height="295" alt="" loading="lazy"><span data-t="simLabel">SOLAR PV / DIGITAL TWIN</span></div>
+      </div>
+      <figure class="research-example"><img src="snow-station.webp" alt="Concept illustration of a thermoelectric bicycle charging station in snow" width="700" height="400" loading="lazy"><figcaption><h3 data-t="snowTitle">Designing for snowy regions</h3><p data-t="snowCopy">The presentation proposes a snow-assisted thermoelectric charging station. A temperature difference can generate electricity through the Seebeck effect.</p></figcaption></figure>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><div class="university"><img src="yamagata-mark.webp" alt="" width="48" height="48" loading="lazy"><span data-t="institution">Yamagata University · Renewable Energy &amp; Control Systems Research</span></div><p data-t="credit">Illustrations and research concepts from the REDT project presentation.</p><a href="https://github.com/Bsenzio/redt_simulator" data-t="source">Site repository ↗</a></div></footer>
+</body>
+</html>

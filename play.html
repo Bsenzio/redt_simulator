@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Run the REDT solar digital twin from Yamagata University.">
+  <title>REDT Simulator</title>
+  <link rel="icon" href="redt-logo.png">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="site.js"></script>
+  <script defer src="player.js"></script>
+</head>
+<body>
+  <header class="site-header"><div class="wrap header-inner">
+    <a class="brand" href="./" aria-label="REDT"><img src="redt-logo.png" alt="" width="76" height="42"><span>REDT</span></a>
+    <nav aria-label="Main navigation"><a href="./" data-t="back">← Back to the project</a></nav>
+    <div class="language" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ja" aria-pressed="false" lang="ja">日本語</button></div>
+  </div></header>
+  <main class="wrap player-main">
+    <div class="player-head"><h1 data-t="playerTitle">REDT Simulator</h1><button id="fullscreen" class="button primary" type="button" data-t="full" disabled>Fullscreen</button></div>
+    <div class="player-frame">
+      <canvas id="unity-canvas" width="1280" height="800" tabindex="0" aria-label="REDT Unity simulator" hidden></canvas>
+      <div class="player-status" id="player-status" aria-live="polite">
+        <img src="redt-logo.png" alt="REDT logo" width="150" height="69" style="object-fit:contain;background:#fffdf7;border-radius:9px;padding:5px">
+        <p id="player-message" data-t="building">The simulator files are being prepared.</p>
+        <button id="start-player" type="button" class="button primary" data-t="start" hidden>Start simulator</button>
+        <progress id="player-progress" max="1" value="0" hidden aria-label="Loading progress"></progress>
+      </div>
+    </div>
+    <p class="player-note" data-t="playerNote">For keyboard controls, click inside the simulator first. The browser version uses sample data or local files. Live UDP requires the desktop version.</p>
+    <div class="player-controls"><a id="desktop-build" href="#" class="button primary" data-t="desktop" hidden>Windows download</a></div>
+  </main>
+  <footer><div class="wrap footer-inner"><div class="university"><img src="yamagata-mark.webp" alt="" width="48" height="48"><span data-t="institution">Yamagata University · Renewable Energy &amp; Control Systems Research</span></div><a href="https://github.com/Bsenzio/redt_simulator" data-t="source">Site repository ↗</a></div></footer>
+</body>
+</html>
