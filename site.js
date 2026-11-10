@@ -2,15 +2,37 @@
 const copy = {
   en: {
     skip:"Skip to content",research:"Research",energy:"Energy systems",simulator:"Simulator",
-    institution:"Yamagata University · Renewable Energy & Control Systems Research",
+    institution:"Yamagata University (Asharif Laboratory)",
     title:"Renewable Energy\nDigital Twins",
     intro:"Explore how sunlight, wind, and temperature differences can power distributed systems. REDT connects physical experiments with digital models so researchers can replay measurements and study operating conditions.",
     solarAction:"Explore the solar simulator",systemsAction:"Meet the energy systems ↘",heroCaption:"FROM FIELD MEASUREMENT TO SIMULATION",
     researchTitle:"A bridge between experiments and models",
-    researchCopy:"The project studies small, distributed energy systems. A digital twin pairs measurements from physical equipment with a virtual model to explore how weather and operating conditions affect the system.",
-    measure:"Measure",measureCopy:"Record environmental conditions and electrical readings from physical equipment.",
-    model:"Model",modelCopy:"Recreate those conditions in a virtual system and vary one factor at a time.",
-    compare:"Compare",compareCopy:"Use the readings to compare behavior and investigate operating strategies.",
+    "brandName": "Renewable Energy Digital Twins",
+    "researchCopy": "Follow a measurement from the physical twin to the simulator, then compare the virtual response with the original readings.",
+    "flowLabel": "REDT DATA FLOW",
+    "flowMeasure": "Measure",
+    "flowLog": "Log",
+    "flowModel": "Model",
+    "flowCompare": "Compare",
+    "physicalTitle": "Physical twin",
+    "physicalAlt": "Physical REDT device with a solar panel, sensors and antenna",
+    "physicalCopy": "The instrument measures light, temperature and electrical output, then sends readings to the local logger.",
+    "physicalTag": "Sensor readings",
+    "loggerAlt": "REDT Data Logger interface",
+    "loggerCopy": "The logger runs on a local Windows server. It receives and records timestamped measurements as CSV and JSONL.",
+    "loggerTag": "Local server · CSV / JSONL",
+    "studioAlt": "REDT Signal Studio showing a fit over measured light data",
+    "studioCopy": "Analyze the measured time series, fit a model and export observed or synthetic series for the simulator.",
+    "studioTag": "Analysis · scenario CSV",
+    "virtualTitle": "Virtual twin",
+    "simulatorAlt": "Virtual solar test site in the REDT simulator",
+    "virtualCopy": "Load a scenario in the simulator and compare the virtual response with the physical twin under matching conditions.",
+    "virtualTag": "Measured ↔ simulated",
+    "feedbackTitle": "Use the comparison to refine the model",
+    "feedbackCopy": "Bring simulation results back to Signal Studio for comparison with the measured series. Differences help guide the next model or experiment.",
+    "loggerDownload": "Download Data Logger v0.1 · Windows ZIP ↓",
+    "pauseMotion": "Pause motion",
+    "resumeMotion": "Resume motion",
     energyTitle:"Three ways to harvest energy",example:"RESEARCH EXAMPLE",solar:"Solar",wind:"Wind",heat:"Thermoelectric",prev:"Previous slide",next:"Next slide",
     available:"AVAILABLE MODULE",launchTitle:"Enter the solar lab",
     launchCopy:"Switch between the physical twin and a virtual solar field. Adjust the weather and panel layout, inspect a single unit, and compare time-series plots.",
@@ -23,15 +45,37 @@ const copy = {
   },
   ja: {
     skip:"本文へ移動",research:"研究概要",energy:"エネルギーシステム",simulator:"シミュレーター",
-    institution:"山形大学 ・ 再生可能エネルギー・制御工学研究",
+    institution:"山形大学（アシャリフ研究室）",
     title:"再生可能エネルギーの\nデジタルツイン",
     intro:"太陽光・風・温度差を活用した分散型エネルギーシステムを探ります。REDTは実機実験とデジタルモデルをつなぎ、測定データを再現しながら運転条件を検討する研究です。",
     solarAction:"太陽光シミュレーターを見る",systemsAction:"エネルギーシステムを知る ↘",heroCaption:"現地計測からシミュレーションへ",
     researchTitle:"実験とモデルをつなぐ",
-    researchCopy:"小規模な分散型エネルギーシステムを対象に、実機の測定値と仮想モデルを組み合わせ、気象や運転条件がシステムに与える影響を調べます。",
-    measure:"計測",measureCopy:"実機を使い、環境条件と電気的な測定値を記録します。",
-    model:"モデル化",modelCopy:"仮想システムで実験条件を再現し、要因を一つずつ変化させます。",
-    compare:"比較",compareCopy:"測定値とモデルの挙動を比較し、運転方法を検討します。",
+    "brandName": "再生可能エネルギーのデジタルツイン",
+    "researchCopy": "実機ツインで得た測定値をシミュレーターまでたどり、仮想モデルの応答を元の測定値と照合します。",
+    "flowLabel": "REDTのデータの流れ",
+    "flowMeasure": "計測",
+    "flowLog": "記録",
+    "flowModel": "モデル化",
+    "flowCompare": "比較",
+    "physicalTitle": "実機ツイン",
+    "physicalAlt": "太陽光パネル、センサー、アンテナを備えたREDTの実機",
+    "physicalCopy": "実機で光、温度、電気出力を計測し、測定値をローカルのロガーに送信します。",
+    "physicalTag": "センサーの測定値",
+    "loggerAlt": "REDT Data Loggerの画面",
+    "loggerCopy": "ローカルのWindowsサーバー上で測定値を受信し、時刻付きのCSVとJSONLとして記録します。",
+    "loggerTag": "ローカルサーバー ・ CSV / JSONL",
+    "studioAlt": "光の測定値と近似曲線を表示したREDT Signal Studioの画面",
+    "studioCopy": "計測した時系列を解析してモデルを当てはめ、実測または合成した時系列をシミュレーター用に出力します。",
+    "studioTag": "時系列解析 ・ シナリオCSV",
+    "virtualTitle": "仮想ツイン",
+    "simulatorAlt": "REDTシミュレーターの仮想太陽光実験場",
+    "virtualCopy": "シナリオを読み込み、条件をそろえて仮想モデルの応答を実機ツインの測定値と照合します。",
+    "virtualTag": "実測値 ↔ シミュレーション値",
+    "feedbackTitle": "比較結果をモデルの改善に活かす",
+    "feedbackCopy": "シミュレーション結果をSignal Studioに戻し、実測時系列と比較します。差をもとに次のモデルや実験を検討します。",
+    "loggerDownload": "Data Logger v0.1をダウンロード ・ Windows ZIP ↓",
+    "pauseMotion": "アニメーションを停止",
+    "resumeMotion": "アニメーションを再開",
     energyTitle:"自然エネルギーを活用する三つの方式",example:"研究例",solar:"太陽光",wind:"風力",heat:"熱電",prev:"前のスライド",next:"次のスライド",
     available:"利用可能なモジュール",launchTitle:"太陽光ラボを開く",
     launchCopy:"実機ツインと仮想太陽光発電所を切り替え、気象やパネル配置を調整します。個別パネルの確認や時系列グラフの比較もできます。",
@@ -81,6 +125,7 @@ function applyLanguage(lang) {
   language = lang;
   try { localStorage.setItem("redt.lang",lang); } catch {}
   document.documentElement.lang = lang;
+  document.querySelectorAll("[data-alt]").forEach(image => { image.alt = copy[lang][image.dataset.alt]; });
   document.querySelectorAll("[data-t]").forEach(node => { if (copy[lang][node.dataset.t]) node.textContent = copy[lang][node.dataset.t]; });
   document.querySelectorAll("[data-lang]").forEach(button => button.setAttribute("aria-pressed",String(button.dataset.lang === lang)));
   if (carousel) {
@@ -99,4 +144,15 @@ carousel?.addEventListener("keydown",event => {
   const delta = event.key === "ArrowLeft" ? -1 : event.key === "ArrowRight" ? 1 : 0;
   if (delta) { event.preventDefault(); renderSlide(active + delta); }
 });
+const motionButton = document.querySelector("#flow-motion");
+if (motionButton) {
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  motionButton.hidden = reducedMotion.matches;
+  reducedMotion.addEventListener("change", event => { motionButton.hidden = event.matches; });
+  motionButton.addEventListener("click", () => {
+    const paused = document.body.classList.toggle("motion-paused");
+    motionButton.dataset.t = paused ? "resumeMotion" : "pauseMotion";
+    motionButton.textContent = copy[language][motionButton.dataset.t];
+  });
+}
 applyLanguage(language);

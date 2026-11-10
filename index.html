@@ -6,14 +6,14 @@
   <meta name="description" content="Explore REDT, a Yamagata University research project connecting renewable energy experiments and digital twins.">
   <title>REDT — Renewable Energy Digital Twins</title>
   <link rel="icon" href="redt-logo.png">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="site.js"></script>
+  <link rel="stylesheet" href="style.css?v=2">
+  <script defer src="site.js?v=2"></script>
 </head>
 <body>
   <a class="skip" href="#main" data-t="skip">Skip to content</a>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="./" aria-label="REDT"><img src="redt-logo.png" alt="" width="76" height="42"><span>REDT</span></a>
+      <a class="brand" href="./" aria-label="REDT"><img src="redt-logo.png" alt="" width="76" height="42"><span>REDT<small data-t="brandName">Renewable Energy Digital Twins</small></span></a>
       <nav aria-label="Main navigation">
         <a href="#research" data-t="research">Research</a>
         <a href="#energy" data-t="energy">Energy systems</a>
@@ -26,9 +26,10 @@
   </header>
   <main id="main">
     <section class="hero">
+      <div class="weather-art" aria-hidden="true"><span></span></div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="dot"></span><span data-t="institution">Yamagata University · Renewable Energy &amp; Control Systems Research</span></p>
+          <p class="eyebrow"><span class="dot"></span><span data-t="institution">Yamagata University (Asharif Laboratory)</span></p>
           <h1 data-t="title">Renewable Energy<br>Digital Twins</h1>
           <p class="intro" data-t="intro">Explore how sunlight, wind, and temperature differences can power distributed systems. REDT connects physical experiments with digital models so researchers can replay measurements and study operating conditions.</p>
           <div class="actions"><a class="button primary" href="#simulator" data-t="solarAction">Explore the solar simulator</a><a class="button secondary" href="#energy" data-t="systemsAction">Meet the energy systems <span aria-hidden="true">↘</span></a></div>
@@ -40,14 +41,53 @@
         </figure>
       </div>
     </section>
-    <section class="wrap section research" id="research">
-      <p class="eyebrow"><span class="index">01</span> <span data-t="research">Research</span></p>
-      <h2 data-t="researchTitle">A bridge between experiments and models</h2>
-      <p class="section-intro" data-t="researchCopy">The project studies small, distributed energy systems. A digital twin pairs measurements from physical equipment with a virtual model to explore how weather and operating conditions affect the system.</p>
-      <div class="workflow">
-        <article><span aria-hidden="true">01</span><h3 data-t="measure">Measure</h3><p data-t="measureCopy">Record environmental conditions and electrical readings from physical equipment.</p></article>
-        <article><span aria-hidden="true">02</span><h3 data-t="model">Model</h3><p data-t="modelCopy">Recreate those conditions in a virtual system and vary one factor at a time.</p></article>
-        <article><span aria-hidden="true">03</span><h3 data-t="compare">Compare</h3><p data-t="compareCopy">Use the readings to compare behavior and investigate operating strategies.</p></article>
+    <section class="research section" id="research">
+      <div class="wrap">
+        <p class="eyebrow"><span class="index">01</span> <span data-t="research">Research</span></p>
+        <h2 data-t="researchTitle">A bridge between experiments and models</h2>
+        <p class="section-intro" data-t="researchCopy">Follow a measurement from the physical twin to the simulator, then compare the virtual response with the original readings.</p>
+        <div class="flow-top"><span data-t="flowLabel">REDT DATA FLOW</span><button type="button" class="motion-button" id="flow-motion" data-t="pauseMotion" hidden>Pause motion</button></div>
+        <ol class="workflow">
+          <li>
+            <article class="flow-card">
+              <p class="flow-step"><span>01</span><span data-t="flowMeasure">Measure</span></p>
+              <div class="flow-media instrument">
+                <img src="workflow-device.webp" alt="Physical REDT device with a solar panel, sensors and antenna" data-alt="physicalAlt" width="760" height="707" loading="lazy">
+              </div>
+              <h3 data-t="physicalTitle">Physical twin</h3><p data-t="physicalCopy">The instrument measures light, temperature and electrical output, then sends readings to the local logger.</p>
+              <p class="flow-tag" data-t="physicalTag">Sensor readings</p>
+            </article>
+          </li>
+          <li>
+            <article class="flow-card">
+              <p class="flow-step"><span>02</span><span data-t="flowLog">Log</span></p>
+              <div class="flow-media"><img src="workflow-logger.webp" alt="REDT Data Logger interface" data-alt="loggerAlt" width="800" height="770" loading="lazy"></div>
+              <h3>REDT Data Logger</h3><p data-t="loggerCopy">The logger runs on a local Windows server. It receives and records timestamped measurements as CSV and JSONL.</p>
+              <p class="flow-tag" data-t="loggerTag">Local server · CSV / JSONL</p>
+            </article>
+          </li>
+          <li>
+            <article class="flow-card">
+              <p class="flow-step"><span>03</span><span data-t="flowModel">Model</span></p>
+              <div class="flow-media"><img src="workflow-studio.webp" alt="REDT Signal Studio showing a fit over measured light data" data-alt="studioAlt" width="800" height="736" loading="lazy"></div>
+              <h3>REDT Signal Studio</h3><p data-t="studioCopy">Analyze the measured time series, fit a model and export observed or synthetic series for the simulator.</p>
+              <p class="flow-tag" data-t="studioTag">Analysis · scenario CSV</p>
+            </article>
+          </li>
+          <li>
+            <article class="flow-card">
+              <p class="flow-step"><span>04</span><span data-t="flowCompare">Compare</span></p>
+              <div class="flow-media"><img src="workflow-simulator.webp" alt="Virtual solar test site in the REDT simulator" data-alt="simulatorAlt" width="1050" height="586" loading="lazy"></div>
+              <h3 data-t="virtualTitle">Virtual twin</h3><p data-t="virtualCopy">Load a scenario in the simulator and compare the virtual response with the physical twin under matching conditions.</p>
+              <p class="flow-tag" data-t="virtualTag">Measured ↔ simulated</p>
+            </article>
+          </li>
+        </ol>
+        <div class="flow-feedback"><span class="feedback-icon" aria-hidden="true">↶</span><div><h3 data-t="feedbackTitle">Use the comparison to refine the model</h3><p data-t="feedbackCopy">Bring simulation results back to Signal Studio for comparison with the measured series. Differences help guide the next model or experiment.</p></div></div>
+        <div class="flow-actions">
+          <a class="button primary" href="https://github.com/Bsenzio/redt_simulator/releases/download/datalogger-v0.1/REDT-DataLogger-v0.1-Windows.zip" data-t="loggerDownload">Download Data Logger v0.1 · Windows ZIP ↓</a>
+          <a class="button flow-link" href="play.html" data-t="launchButton">Open REDT simulator ↗</a>
+        </div>
       </div>
     </section>
     <section class="energy-section" id="energy">
@@ -82,11 +122,11 @@
           <a href="play.html" class="button primary" data-t="launchButton">Open REDT simulator <span aria-hidden="true">↗</span></a>
           <p class="planned" data-t="roadmap">Small wind turbine and Seebeck effect modules are planned.</p>
         </div>
-        <div class="sim-picture"><img src="solar-landscape.webp" width="780" height="295" alt="" loading="lazy"><span data-t="simLabel">SOLAR PV / DIGITAL TWIN</span></div>
+        <div class="sim-picture"><img src="workflow-simulator.webp" width="1050" height="586" alt="" loading="lazy"><span data-t="simLabel">SOLAR PV / DIGITAL TWIN</span></div>
       </div>
       <figure class="research-example"><img src="snow-station.webp" alt="Concept illustration of a thermoelectric bicycle charging station in snow" width="700" height="400" loading="lazy"><figcaption><h3 data-t="snowTitle">Designing for snowy regions</h3><p data-t="snowCopy">The presentation proposes a snow-assisted thermoelectric charging station. A temperature difference can generate electricity through the Seebeck effect.</p></figcaption></figure>
     </section>
   </main>
-  <footer><div class="wrap footer-inner"><div class="university"><img src="yamagata-mark.webp" alt="" width="48" height="48" loading="lazy"><span data-t="institution">Yamagata University · Renewable Energy &amp; Control Systems Research</span></div><p data-t="credit">Illustrations and research concepts from the REDT project presentation.</p><a href="https://github.com/Bsenzio/redt_simulator" data-t="source">Site repository ↗</a></div></footer>
+  <footer><div class="wrap footer-inner"><div class="university"><img src="yamagata-mark.webp" alt="" width="48" height="48" loading="lazy"><span data-t="institution">Yamagata University (Asharif Laboratory)</span></div><p data-t="credit">Illustrations and research concepts from the REDT project presentation.</p><a href="https://github.com/Bsenzio/redt_simulator" data-t="source">Site repository ↗</a></div></footer>
 </body>
 </html>
