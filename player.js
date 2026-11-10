@@ -13,7 +13,7 @@ function setMessage(key) {
   message.dataset.t = key;
   message.textContent = copy[language][key];
 }
-async function localAsset(asset, mime) {
+async function localAsset(asset, mime, stagedUrls) {
   if (typeof asset === "string") return asset;
   if (!Array.isArray(asset) || asset.length === 0) throw new Error("Missing Unity build asset");
   const parts = [];
@@ -21,8 +21,11 @@ async function localAsset(asset, mime) {
     const response = await fetch(path);
     if (!response.ok) throw new Error("Missing Unity build part");
     parts.push(await response.arrayBuffer());
+    progress.value = Math.max(progress.value, 0.35 * parts.length / asset.length);
   }
-  return URL.createObjectURL(new Blob(parts, {type:mime}));
+  const url = URL.createObjectURL(new Blob(parts, {type:mime}));
+  stagedUrls.push(url);
+  return url;
 }
 function syncLanguage() {
   if (instance) instance.SendMessage("Solar Field","SetLanguageFromSite",language);
@@ -33,11 +36,13 @@ async function startPlayer() {
   progress.hidden = false;
   canvas.hidden = false;
   setMessage("loading");
+  progress.value = 0;
+  const stagedUrls = [];
   try {
     const settings = {
-      dataUrl: await localAsset(config.dataUrl,"application/octet-stream"),
-      frameworkUrl: await localAsset(config.frameworkUrl,"application/javascript"),
-      codeUrl: await localAsset(config.codeUrl,"application/wasm"),
+      dataUrl: await localAsset(config.dataUrl,"application/octet-stream",stagedUrls),
+      frameworkUrl: await localAsset(config.frameworkUrl,"application/javascript",stagedUrls),
+      codeUrl: await localAsset(config.codeUrl,"application/wasm",stagedUrls),
       streamingAssetsUrl:"StreamingAssets",
       companyName:"Yamagata University",
       productName:"REDT Simulator",
@@ -47,7 +52,7 @@ async function startPlayer() {
     const script = document.createElement("script");
     script.src = config.loaderUrl;
     await new Promise((resolve,reject) => { script.onload=resolve; script.onerror=reject; document.head.append(script); });
-    instance = await createUnityInstance(canvas,settings,value => { progress.value=value; });
+    instance = await createUnityInstance(canvas,settings,value => { progress.value=Math.max(progress.value,0.35 + 0.65 * value); });
     window.redtUnity = instance;
     status.hidden = true;
     fullscreen.disabled = false;
@@ -59,6 +64,8 @@ async function startPlayer() {
     progress.hidden = true;
     start.hidden = false;
     setMessage("playerFailure");
+  } finally {
+    stagedUrls.forEach(url => URL.revokeObjectURL(url));
   }
 }
 document.addEventListener("redt-language",syncLanguage);
