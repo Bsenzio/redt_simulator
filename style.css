@@ -12,3 +12,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .hero h1{white-space:pre-line}
 [hidden]{display:none!important}
+
+.slide-image .system-mark{position:absolute;right:13px;bottom:13px;width:clamp(77px,12vw,132px);height:auto;border-radius:9px;border:1px solid #b8cabc;box-shadow:0 2px 9px #153a2926}

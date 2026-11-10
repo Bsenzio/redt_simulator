@@ -68,6 +68,7 @@ function renderSlide(index) {
   const mascot = document.querySelector("#mascot");
   mascot.src = slide.image;
   mascot.alt = alt;
+  document.querySelector("#system-mark").src = slide.image.replace(".webp", "-mark.webp");
   mascot.parentElement.style.background = slide.color;
   document.querySelector("#slide-index").textContent = `0${active + 1} / 03`;
   document.querySelector("#slide-status").textContent = status;
