@@ -66,3 +66,11 @@
 .guide-panel p:not([hidden]){animation:guide-reveal .3s ease-out}
 @keyframes guide-reveal{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.guide-panel p:not([hidden]){animation:none}}
+
+.player-guide .guide-steps{margin-top:.8rem}
+.guide-panel article{margin-top:1rem;padding:1rem;background:#fff;border:1px solid #bcd6ec;border-radius:12px}
+.guide-panel article:not([hidden]){animation:guide-reveal .3s ease-out}
+.guide-panel h3{margin:0;font-size:1.1rem}
+.guide-panel .guide-tip{padding-top:.7rem;border-top:1px solid #dbe9f5;color:#285780}
+.guide-steps button:disabled{opacity:.45;cursor:default}
+@media(prefers-reduced-motion:reduce){.guide-panel article:not([hidden]){animation:none}}

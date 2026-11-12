@@ -6,8 +6,8 @@
   <meta name="description" content="Run the REDT solar digital twin from Yamagata University.">
   <title>REDT Simulator</title>
   <link rel="icon" href="redt-logo.png">
-  <link rel="stylesheet" href="style.css?v=3">
-  <script defer src="site.js?v=3"></script>
+  <link rel="stylesheet" href="style.css?v=4">
+  <script defer src="site.js?v=4"></script>
   <script defer src="player.js"></script>
 </head>
 <body>
@@ -19,18 +19,51 @@
   <main class="wrap player-main">
     <div class="player-head"><h1 data-t="playerTitle">REDT Simulator</h1><button id="fullscreen" class="button primary" type="button" data-t="full" disabled>Fullscreen</button></div>
     <section class="player-guide" aria-labelledby="guide-title">
-      <h2 id="guide-title" data-t="guideTitle">Simulator quick guide</h2>
+      <h2 id="guide-title" data-t="walkTitle">Try a cloud passing over a solar panel</h2>
+      <a class="button" href="redt-mppt-example.csv" download data-t="walkDownload">Download example CSV</a>
       <div class="guide-steps" role="group" aria-labelledby="guide-title">
-        <button type="button" class="button" data-guide="load" aria-pressed="true" data-t="guideLoad">1. Load data</button>
-        <button type="button" class="button" data-guide="train" aria-pressed="false" data-t="guideTrain">2. Train MPPT</button>
-        <button type="button" class="button" data-guide="run" aria-pressed="false" data-t="guideRun">3. Run</button>
-        <button type="button" class="button" data-guide="compare" aria-pressed="false" data-t="guideCompare">4. Compare</button>
+        <button type="button" class="button" data-guide="load" aria-pressed="true" aria-controls="guide-load" data-t="walkload">1. Load the example</button>
+        <button type="button" class="button" data-guide="train" aria-pressed="false" aria-controls="guide-train" data-t="walktrain">2. Train on the CSV</button>
+        <button type="button" class="button" data-guide="field" aria-pressed="false" aria-controls="guide-field" data-t="walkfield">3. Configure the panels</button>
+        <button type="button" class="button" data-guide="run" aria-pressed="false" aria-controls="guide-run" data-t="walkrun">4. Replay the cloud event</button>
+        <button type="button" class="button" data-guide="compare" aria-pressed="false" aria-controls="guide-compare" data-t="walkcompare">5. Read the results</button>
+        <button type="button" class="button" data-guide="tools" aria-pressed="false" aria-controls="guide-tools" data-t="walktools">6. Explore and export</button>
       </div>
       <div class="guide-panel" aria-live="polite">
-        <p data-guide-panel="load" data-t="guideLoadText">Open Data to load a local CSV or JSON file, or generate a sample day. In Plot, Full series shows the whole file without running the scene.</p>
-        <p data-guide-panel="train" data-t="guideTrainText" hidden>In Training, add your series and choose how many to use. Generate variants if you want synthetic weather profiles. Select Train MPPT.</p>
-        <p data-guide-panel="run" data-t="guideRunText" hidden>In Field, choose a panel or the series string. Select Play to run the same conditions for all controllers.</p>
-        <p data-guide-panel="compare" data-t="guideCompareText" hidden>In Compare, choose Energy period. Compare total Wh for P&amp;O, hill climbing, PID, fixed voltage, and the trained model. Use Power charts to see the traces.</p>
+        <article id="guide-load" data-guide-panel="load">
+          <h3 data-t="walkload">1. Load the example</h3>
+          <p data-t="walkloadBody">Download the example CSV below. In REDT, select Start simulator, then Simulation. In Data, choose Open training file and select redt-mppt-example.csv. Keep Use timestamps enabled. The file contains 121 one-second samples with a simulated cloud passing from about 30 to 70 seconds.</p>
+          <p class="guide-tip" data-t="walkloadTip">In Plot → Full series, select irradiance to see the drop and recovery before pressing Play.</p>
+        </article>
+        <article id="guide-train" data-guide-panel="train" hidden>
+          <h3 data-t="walktrain">2. Train on the CSV</h3>
+          <p data-t="walktrainBody">Open Training. If this is your first file, the counter should show Train on 1 of 1. Press Train MPPT. REDT uses the file’s light and temperature data to fit a voltage target derived from its simulated I–V curve.</p>
+          <p class="guide-tip" data-t="walktrainTip">Try Generate variants to create synthetic profiles with the same timestamps. For independent evaluation, reserve a different measured day and keep it out of training.</p>
+        </article>
+        <article id="guide-field" data-guide-panel="field" hidden>
+          <h3 data-t="walkfield">3. Configure the panels</h3>
+          <p data-t="walkfieldBody">Open Field. For a simple trial, choose one panel and switch the MPPT scope to isolated panel. For an array trial, set Rows and Columns up to 5×5 and select series string. Use the matrix to focus or mark panels and adjust Tilt, connection and model assignment.</p>
+          <p class="guide-tip" data-t="walkfieldTip">Use Camera and Heat map to inspect the field. Weather controls let you test manual conditions such as cloud cover, wind and sun angle.</p>
+        </article>
+        <article id="guide-run" data-guide-panel="run" hidden>
+          <h3 data-t="walkrun">4. Replay the cloud event</h3>
+          <p data-t="walkrunBody">In Compare, choose a 60 s Energy period before starting. Use Data → Restart file to return to the beginning, then press Play. The simulator evaluates every controller on the same conditions.</p>
+          <p class="guide-tip" data-t="walkrunTip">At 60 simulated seconds the Wh totals stop accumulating. Try Full run to include the recovery after the cloud.</p>
+        </article>
+        <article id="guide-compare" data-guide-panel="compare" hidden>
+          <h3 data-t="walkcompare">5. Read the results</h3>
+          <p data-t="walkcompareBody">Compare shows power now (W) and energy accumulated during the selected interval (Wh). Open Power charts and look for the dip near the cloud event. Compare P&amp;O, hill climbing, PID, fixed voltage and the trained model.</p>
+          <p class="guide-tip" data-t="walkcompareTip">This example replays the training file. To test generalization, replay a separate measured file. PID follows the simulated MPP reference.</p>
+        </article>
+        <article id="guide-tools" data-guide-panel="tools" hidden>
+          <h3 data-t="walktools">6. Explore and export</h3>
+          <p data-t="walktoolsBody">Use Plot to switch between environment, measurements and MPPT curves. Full series compares the input files, and Training → Models and validation shows classifier results. The Physical Twin view exposes readings and logs for the instrument.</p>
+          <p class="guide-tip" data-t="walktoolsTip">Use the desktop version for live UDP and file dialogs to save comparisons as CSV or JSON and export the trained model.</p>
+        </article>
+      </div>
+      <div class="guide-steps">
+        <button type="button" class="button" data-guide-direction="-1" data-t="walkBack" disabled>Previous step</button>
+        <button type="button" class="button" data-guide-direction="1" data-t="walkNext">Next step</button>
       </div>
     </section>
     <div class="player-frame">
