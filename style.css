@@ -56,3 +56,13 @@
 @media(max-width:625px){.workflow{grid-template-columns:1fr;gap:25px}.workflow>li:not(:last-child)::after{top:auto;right:calc(50% - 12px);bottom:-25px;content:"↓"}.workflow>li:not(:last-child)::before{display:none}.flow-card{padding:13px}.flow-media{aspect-ratio:16/9}.flow-actions .button{width:100%}}
 @media(max-width:400px){.brand small{font-size:.55rem}.brand{gap:6px}}
 @media(prefers-reduced-motion:reduce){.weather-art span,.weather-art::before,.workflow>li::before{animation:none}}
+
+.player-guide{margin:0 0 1rem;padding:clamp(.9rem,2vw,1.35rem);background:#edf6ff;border:1px solid #bcd6ec;border-radius:16px}
+.player-guide h2{margin:0 0 .75rem;font-size:1.2rem}
+.guide-steps{display:flex;flex-wrap:wrap;gap:.45rem}
+.guide-steps .button{padding:.5rem .8rem;border-color:#aac8e1;background:#fff;color:#124c80}
+.guide-steps .button[aria-pressed="true"]{background:#154e82;color:#fff}
+.guide-panel p{margin:.8rem 0 0;line-height:1.55}
+.guide-panel p:not([hidden]){animation:guide-reveal .3s ease-out}
+@keyframes guide-reveal{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.guide-panel p:not([hidden]){animation:none}}

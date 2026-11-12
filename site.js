@@ -1,6 +1,16 @@
 "use strict";
 const copy = {
   en: {
+    guideTitle: "Simulator quick guide",
+    guideLoad: "1. Load data",
+    guideTrain: "2. Train MPPT",
+    guideRun: "3. Run",
+    guideCompare: "4. Compare",
+    guideLoadText: "Open Data to load a local CSV or JSON file, or generate a sample day. In Plot, Full series shows the whole file without running the scene.",
+    guideTrainText: "In Training, add your series and choose how many to use. Generate variants if you want synthetic weather profiles. Select Train MPPT.",
+    guideRunText: "In Field, choose a panel or the series string. Select Play to run the same conditions for all controllers.",
+    guideCompareText: "In Compare, choose Energy period. Compare total Wh for P&O, hill climbing, PID, fixed voltage, and the trained model. Use Power charts to see the traces.",
+
     skip:"Skip to content",research:"Research",energy:"Energy systems",simulator:"Simulator",
     institution:"Yamagata University (Asharif Laboratory)",
     title:"Renewable Energy\nDigital Twins",
@@ -45,6 +55,16 @@ const copy = {
     unavailable:"The Unity browser build is not online yet.",full:"Fullscreen",desktop:"Windows download",building:"The simulator files are being prepared."
   },
   ja: {
+    guideTitle: "シミュレーターの使い方",
+    guideLoad: "1. データ読込",
+    guideTrain: "2. MPPT学習",
+    guideRun: "3. 実行",
+    guideCompare: "4. 比較",
+    guideLoadText: "DataでCSVやJSONを読み込むか、サンプルを生成します。PlotのFull seriesではシミュレーションを実行せずに系列全体を表示できます。",
+    guideTrainText: "Trainingで系列を追加し、学習に使う数を選びます。必要に応じて合成系列を生成し、Train MPPTを押します。",
+    guideRunText: "Fieldで単独パネルまたは直列ストリングを選び、Playを押します。すべての制御方式を同じ条件で実行します。",
+    guideCompareText: "CompareでEnergy periodを選び、P&O、山登り法、PID、固定電圧、学習済みモデルの電力量（Wh）を比較します。Power chartsで推移を確認できます。",
+
     skip:"本文へ移動",research:"研究概要",energy:"エネルギーシステム",simulator:"シミュレーター",
     institution:"山形大学（アシャリフ研究室）",
     title:"再生可能エネルギーの\nデジタルツイン",
@@ -158,3 +178,10 @@ if (motionButton) {
   });
 }
 applyLanguage(language);
+
+const guideButtons = document.querySelectorAll("[data-guide]");
+const guidePanels = document.querySelectorAll("[data-guide-panel]");
+guideButtons.forEach(button => button.addEventListener("click", () => {
+  guideButtons.forEach(step => step.setAttribute("aria-pressed", String(step === button)));
+  guidePanels.forEach(panel => { panel.hidden = panel.dataset.guidePanel !== button.dataset.guide; });
+}));

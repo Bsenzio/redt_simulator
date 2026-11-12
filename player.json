@@ -1,4 +1,7 @@
 {
+  "loaderUrl": "redt.loader.js",
+  "frameworkUrl": "redt.framework.js.unityweb",
+  "codeUrl": "redt.wasm.unityweb",
   "dataUrl": [
     "redt.data.unityweb.part01.bin",
     "redt.data.unityweb.part02.bin",
@@ -9,8 +12,5 @@
     "redt.data.unityweb.part07.bin",
     "redt.data.unityweb.part08.bin"
   ],
-  "frameworkUrl": "redt.framework.js.unityweb",
-  "loaderUrl": "redt.loader.js",
-  "codeUrl": "redt.wasm.unityweb",
-  "version": "0.1"
+  "version": "0.2"
 }

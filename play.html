@@ -6,8 +6,8 @@
   <meta name="description" content="Run the REDT solar digital twin from Yamagata University.">
   <title>REDT Simulator</title>
   <link rel="icon" href="redt-logo.png">
-  <link rel="stylesheet" href="style.css?v=2">
-  <script defer src="site.js?v=2"></script>
+  <link rel="stylesheet" href="style.css?v=3">
+  <script defer src="site.js?v=3"></script>
   <script defer src="player.js"></script>
 </head>
 <body>
@@ -18,6 +18,21 @@
   </div></header>
   <main class="wrap player-main">
     <div class="player-head"><h1 data-t="playerTitle">REDT Simulator</h1><button id="fullscreen" class="button primary" type="button" data-t="full" disabled>Fullscreen</button></div>
+    <section class="player-guide" aria-labelledby="guide-title">
+      <h2 id="guide-title" data-t="guideTitle">Simulator quick guide</h2>
+      <div class="guide-steps" role="group" aria-labelledby="guide-title">
+        <button type="button" class="button" data-guide="load" aria-pressed="true" data-t="guideLoad">1. Load data</button>
+        <button type="button" class="button" data-guide="train" aria-pressed="false" data-t="guideTrain">2. Train MPPT</button>
+        <button type="button" class="button" data-guide="run" aria-pressed="false" data-t="guideRun">3. Run</button>
+        <button type="button" class="button" data-guide="compare" aria-pressed="false" data-t="guideCompare">4. Compare</button>
+      </div>
+      <div class="guide-panel" aria-live="polite">
+        <p data-guide-panel="load" data-t="guideLoadText">Open Data to load a local CSV or JSON file, or generate a sample day. In Plot, Full series shows the whole file without running the scene.</p>
+        <p data-guide-panel="train" data-t="guideTrainText" hidden>In Training, add your series and choose how many to use. Generate variants if you want synthetic weather profiles. Select Train MPPT.</p>
+        <p data-guide-panel="run" data-t="guideRunText" hidden>In Field, choose a panel or the series string. Select Play to run the same conditions for all controllers.</p>
+        <p data-guide-panel="compare" data-t="guideCompareText" hidden>In Compare, choose Energy period. Compare total Wh for P&amp;O, hill climbing, PID, fixed voltage, and the trained model. Use Power charts to see the traces.</p>
+      </div>
+    </section>
     <div class="player-frame">
       <canvas id="unity-canvas" width="1280" height="800" tabindex="0" aria-label="REDT Unity simulator" hidden></canvas>
       <div class="player-status" id="player-status" aria-live="polite">
