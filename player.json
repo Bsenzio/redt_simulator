@@ -3,7 +3,11 @@
     "redt.data.unityweb.part01.bin",
     "redt.data.unityweb.part02.bin",
     "redt.data.unityweb.part03.bin",
-    "redt.data.unityweb.part04.bin"
+    "redt.data.unityweb.part04.bin",
+    "redt.data.unityweb.part05.bin",
+    "redt.data.unityweb.part06.bin",
+    "redt.data.unityweb.part07.bin",
+    "redt.data.unityweb.part08.bin"
   ],
   "frameworkUrl": "redt.framework.js.unityweb",
   "loaderUrl": "redt.loader.js",
