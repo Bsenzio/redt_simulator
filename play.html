@@ -7,7 +7,7 @@
   <title>REDT Simulator</title>
   <link rel="icon" href="redt-logo.png">
   <link rel="stylesheet" href="style.css?v=6">
-  <script defer src="site.js?v=4"></script>
+  <script defer src="site.js?v=5"></script>
   <script defer src="player.js"></script>
 </head>
 <body>
@@ -32,31 +32,35 @@
     <section class="player-guide" aria-labelledby="guide-title">
       <h2 id="guide-title" data-t="walkTitle">Simulator walkthrough</h2>
       <a class="button" href="redt-mppt-example.csv" download data-t="walkDownload">Download example CSV</a>
-      <div class="guide-steps" role="group" aria-labelledby="guide-title">
-        <button type="button" class="button" data-guide="load" aria-pressed="true" aria-controls="guide-load" data-t="walkload">1. Load the example</button>
-        <button type="button" class="button" data-guide="train" aria-pressed="false" aria-controls="guide-train" data-t="walktrain">2. Train on the CSV</button>
-        <button type="button" class="button" data-guide="field" aria-pressed="false" aria-controls="guide-field" data-t="walkfield">3. Configure the panels</button>
-        <button type="button" class="button" data-guide="run" aria-pressed="false" aria-controls="guide-run" data-t="walkrun">4. Replay the cloud event</button>
-        <button type="button" class="button" data-guide="compare" aria-pressed="false" aria-controls="guide-compare" data-t="walkcompare">5. Read the results</button>
-        <button type="button" class="button" data-guide="tools" aria-pressed="false" aria-controls="guide-tools" data-t="walktools">6. Explore and export</button>
-      </div>
       <div class="guide-panel" aria-live="polite">
         <article id="guide-load" data-guide-panel="load">
+          <h3 data-t="walkload">1. Load the example</h3>
+          <p data-t="walkloadBody">Download the CSV. In Data, select Open training file and keep Use timestamps enabled.</p>
           <div class="guide-demo demo-load" aria-hidden="true"><span class="demo-file">CSV</span><span class="demo-arrow">→</span><div class="demo-controls"><b>Data</b><span>Open training file…</span><span>Use timestamps ✓</span></div></div>
         </article>
         <article id="guide-train" data-guide-panel="train" hidden>
+          <h3 data-t="walktrain">2. Train on the CSV</h3>
+          <p data-t="walktrainBody">With the CSV loaded, open Training and press Train MPPT. The model learns a voltage target from the file.</p>
           <div class="guide-demo demo-train" aria-hidden="true"><div class="demo-controls"><b>Training</b><span>Train on 1 of 1</span><span class="demo-action">Train MPPT</span></div><span class="demo-arrow">→</span><div class="demo-fit"><i></i><i></i><i></i><i></i><i></i></div></div>
         </article>
         <article id="guide-field" data-guide-panel="field" hidden>
+          <h3 data-t="walkfield">3. Choose a panel</h3>
+          <p data-t="walkfieldBody">After training, select a panel in Field and set MPPT to isolated panel to test it on its own.</p>
           <div class="guide-demo demo-field" aria-hidden="true"><div class="demo-grid"><i>0,0</i><i>0,1</i><i>0,2</i><i>1,0</i><i>1,1</i><i>1,2</i><i>2,0</i><i>2,1</i><i>2,2</i></div><div class="demo-controls"><b>Field</b><span>MPPT: isolated panel</span><span>Tilt · 20°</span></div></div>
         </article>
         <article id="guide-run" data-guide-panel="run" hidden>
+          <h3 data-t="walkrun">4. Replay the cloud event</h3>
+          <p data-t="walkrunBody">Set Energy period to 60 s in Compare. Then use Data → Restart file and press Play.</p>
           <div class="guide-demo demo-run" aria-hidden="true"><div class="demo-sky"><span>☀</span><i>☁</i><b>▧ ▧ ▧</b></div><div class="demo-controls"><b>▶ Play</b><span>Data → Restart file</span></div></div>
         </article>
         <article id="guide-compare" data-guide-panel="compare" hidden>
+          <h3 data-t="walkcompare">5. Compare the results</h3>
+          <p data-t="walkcompareBody">In Compare, read the energy totals in Wh. Open Power charts to see how power changes as the cloud passes.</p>
           <div class="guide-demo demo-compare" aria-hidden="true"><div class="demo-controls"><b>Compare</b><span>Energy period · 60 s</span><span>Power charts</span></div><div class="demo-bars"><i>P&amp;O</i><i>PID</i><i>MPPT</i><b>Wh</b></div></div>
         </article>
         <article id="guide-tools" data-guide-panel="tools" hidden>
+          <h3 data-t="walktools">6. Explore and export</h3>
+          <p data-t="walktoolsBody">Use Plot → Full series to inspect the input. Try another file for validation, or export results from the desktop app.</p>
           <div class="guide-demo demo-tools" aria-hidden="true"><div class="demo-controls"><b>Plot</b><span>Full series</span><span>MPPT comparison</span></div><div class="demo-controls"><b>Training</b><span>Models and validation</span><span>Physical Twin ↗</span></div></div>
         </article>
       </div>

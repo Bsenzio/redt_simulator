@@ -6,22 +6,22 @@ const copy = {
     walkBack: "Previous step",
     walkNext: "Next step",
     walkload: "1. Load the example",
-    walkloadBody: "Download the example CSV below. In REDT, select Start simulator, then Simulation. In Data, choose Open training file and select redt-mppt-example.csv. Keep Use timestamps enabled. The file contains 121 one-second samples with a simulated cloud passing from about 30 to 70 seconds.",
+    walkloadBody: "Download the CSV. In Data, select Open training file and keep Use timestamps enabled.",
     walkloadTip: "In Plot → Full series, select irradiance to see the drop and recovery before pressing Play.",
     walktrain: "2. Train on the CSV",
-    walktrainBody: "Open Training. If this is your first file, the counter should show Train on 1 of 1. Press Train MPPT. REDT uses the file’s light and temperature data to fit a voltage target derived from its simulated I–V curve.",
+    walktrainBody: "With the CSV loaded, open Training and press Train MPPT. The model learns a voltage target from the file.",
     walktrainTip: "Try Generate variants to create synthetic profiles with the same timestamps. For independent evaluation, reserve a different measured day and keep it out of training.",
     walkfield: "3. Configure the panels",
-    walkfieldBody: "Open Field. For a simple trial, choose one panel and switch the MPPT scope to isolated panel. For an array trial, set Rows and Columns up to 5×5 and select series string. Use the matrix to focus or mark panels and adjust Tilt, connection and model assignment.",
+    walkfieldBody: "After training, select a panel in Field and set MPPT to isolated panel to test it on its own.",
     walkfieldTip: "Use Camera and Heat map to inspect the field. Weather controls let you test manual conditions such as cloud cover, wind and sun angle.",
     walkrun: "4. Replay the cloud event",
-    walkrunBody: "In Compare, choose a 60 s Energy period before starting. Use Data → Restart file to return to the beginning, then press Play. The simulator evaluates every controller on the same conditions.",
+    walkrunBody: "Set Energy period to 60 s in Compare. Then use Data → Restart file and press Play.",
     walkrunTip: "At 60 simulated seconds the Wh totals stop accumulating. Try Full run to include the recovery after the cloud.",
     walkcompare: "5. Read the results",
-    walkcompareBody: "Compare shows power now (W) and energy accumulated during the selected interval (Wh). Open Power charts and look for the dip near the cloud event. Compare P&O, hill climbing, PID, fixed voltage and the trained model.",
+    walkcompareBody: "In Compare, read the energy totals in Wh. Open Power charts to see how power changes as the cloud passes.",
     walkcompareTip: "This example replays the training file. To test generalization, replay a separate measured file. PID follows the simulated MPP reference.",
     walktools: "6. Explore and export",
-    walktoolsBody: "Use Plot to switch between environment, measurements and MPPT curves. Full series compares the input files, and Training → Models and validation shows classifier results. The Physical Twin view exposes readings and logs for the instrument.",
+    walktoolsBody: "Use Plot → Full series to inspect the input. Try another file for validation, or export results from the desktop app.",
     walktoolsTip: "Use the desktop version for live UDP and file dialogs to save comparisons as CSV or JSON and export the trained model.",
 
     skip:"Skip to content",research:"Research",energy:"Energy systems",simulator:"Simulator",
@@ -73,22 +73,22 @@ const copy = {
     walkBack: "前のステップ",
     walkNext: "次のステップ",
     walkload: "1. サンプルを読み込む",
-    walkloadBody: "下のCSVをダウンロードします。Start simulator、Simulationの順に選び、DataのOpen training fileでCSVを開きます。Use timestampsを有効にします。1秒間隔の121点があり、約30〜70秒に雲の通過を再現します。",
+    walkloadBody: "CSVをダウンロードし、DataのOpen training fileで開きます。Use timestampsを有効にします。",
     walkloadTip: "Plot → Full seriesで日射強度を選ぶと、実行前に低下と回復を確認できます。",
     walktrain: "2. CSVで学習する",
-    walktrainBody: "Trainingを開きます。最初のファイルならTrain on 1 of 1と表示されます。Train MPPTを押すと、日射と温度から模擬I–V曲線に基づく目標電圧を学習します。",
+    walktrainBody: "CSVを読み込んだらTrainingのTrain MPPTを押します。ファイルのデータから目標電圧を学習します。",
     walktrainTip: "Generate variantsで時刻を保持した合成系列を作れます。独立評価には別の日の実測データを学習から除外して使用します。",
     walkfield: "3. パネルを設定する",
-    walkfieldBody: "Fieldを開き、最初は単独パネルを選びます。アレイを試すには最大5×5に設定して直列ストリングを選びます。マトリクスでパネルを選択・マークし、傾斜、接続、モデル割当を調整できます。",
+    walkfieldBody: "学習後、Fieldでパネルを選び、MPPTを単独パネルに設定します。",
     walkfieldTip: "CameraとHeat mapで配置を確認できます。Weatherでは雲量、風、太陽角度などを手動設定できます。",
     walkrun: "4. 雲の通過を再生する",
-    walkrunBody: "開始前にCompareでEnergy periodを60秒に設定します。Data → Restart fileで先頭に戻り、Playを押します。各制御方式は同じ条件で評価されます。",
+    walkrunBody: "CompareでEnergy periodを60秒に設定します。Data → Restart fileで先頭に戻り、Playを押します。",
     walkrunTip: "60秒でWhの積算が止まります。Full runにすると雲通過後の回復も含められます。",
     walkcompare: "5. 結果を読む",
-    walkcompareBody: "Compareには瞬時電力（W）と選択期間の積算電力量（Wh）が表示されます。Power chartsで雲による低下を確認し、各制御方式を比較します。",
+    walkcompareBody: "Compareで積算電力量（Wh）を比較します。Power chartsで雲の通過による電力の変化を確認します。",
     walkcompareTip: "この例では学習ファイルを再生します。汎化性能は別の実測ファイルで評価します。PIDは模擬MPP電圧に追従します。",
     walktools: "6. その他の機能と出力",
-    walktoolsBody: "Plotでは環境、測定値、MPPTのグラフを切り替えられます。Full seriesで入力系列を比較し、Training → Models and validationで分類結果を確認できます。Physical Twinでは機器の測定値とログを確認できます。",
+    walktoolsBody: "Plot → Full seriesで入力を確認します。別のファイルで検証し、デスクトップ版で結果を保存できます。",
     walktoolsTip: "UDP受信と保存ダイアログによる比較結果のCSV・JSON保存、学習モデルの出力にはデスクトップ版を使います。",
 
     skip:"本文へ移動",research:"研究概要",energy:"エネルギーシステム",simulator:"シミュレーター",
@@ -205,21 +205,17 @@ if (motionButton) {
 }
 applyLanguage(language);
 
-const guideButtons = [...document.querySelectorAll("[data-guide]")];
 const guidePanels = document.querySelectorAll("[data-guide-panel]");
 const guideNavigation = document.querySelectorAll("[data-guide-direction]");
 let guideStep = 0;
 
 function showGuideStep(index) {
-  if (index < 0 || index >= guideButtons.length) return;
+  if (index < 0 || index >= guidePanels.length) return;
   guideStep = index;
-  const current = guideButtons[index].dataset.guide;
-  guideButtons.forEach((step, i) => step.setAttribute("aria-pressed", String(i === index)));
-  guidePanels.forEach(panel => { panel.hidden = panel.dataset.guidePanel !== current; });
+  guidePanels.forEach((panel, i) => { panel.hidden = i !== index; });
   guideNavigation.forEach(button => {
     const next = index + Number(button.dataset.guideDirection);
-    button.disabled = next < 0 || next >= guideButtons.length;
+    button.disabled = next < 0 || next >= guidePanels.length;
   });
 }
-guideButtons.forEach((button, index) => button.addEventListener("click", () => showGuideStep(index)));
 guideNavigation.forEach(button => button.addEventListener("click", () => showGuideStep(guideStep + Number(button.dataset.guideDirection))));
