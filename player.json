@@ -10,7 +10,12 @@
     "redt.data.unityweb.part05.bin",
     "redt.data.unityweb.part06.bin",
     "redt.data.unityweb.part07.bin",
-    "redt.data.unityweb.part08.bin"
+    "redt.data.unityweb.part08.bin",
+    "redt.data.unityweb.part09.bin",
+    "redt.data.unityweb.part10.bin",
+    "redt.data.unityweb.part11.bin",
+    "redt.data.unityweb.part12.bin",
+    "redt.data.unityweb.part13.bin"
   ],
-  "version": "0.2"
+  "version": "0.3"
 }
